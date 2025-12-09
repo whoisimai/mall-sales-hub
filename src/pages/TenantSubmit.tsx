@@ -18,6 +18,10 @@ export default function TenantSubmit() {
   const currentMonth = format(new Date(), 'yyyy-MM');
   const existingSubmission = tenant ? getSubmissionForMonth(tenant.id, currentMonth) : undefined;
 
+  if (tenants.length === 0) {
+  return <div className="min-h-screen flex items-center justify-center">Loading…</div>;
+}
+
   if (!tenant) {
     return <Navigate to="/404" replace />;
   }
